@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Subscription} from 'rxjs/subscription';
-import {Observable} from 'rxjs/observable';
+import { Subscription} from 'rxjs/subscription';
+import { Observable} from 'rxjs/observable';
 import { Subject }    from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/Rx";
 import { Router }   from '@angular/router';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 import { AuthService } from './auth.service';
-import { OrderService } from './order.service';
-import { PayService } from './pay.service';
+import { UserService } from './user.service';
 
 @Injectable()
 export class HubService {
@@ -16,18 +15,20 @@ export class HubService {
   private headerLinks: BehaviorSubject<Array<any>> = 
                           new BehaviorSubject([{'title':'default', 'address':'blah'}]);
   private lastLink: Object = {'label':'Log Out', 'address':'logout'};
-  private monkeyReport: any;
-
+  
   public isLoggedIn: boolean = false;
+  public authstate;
   public user: any;
 
   constructor(public _af:AngularFire,
               public _as:AuthService, 
-              public _order:OrderService, 
-              public _pay:PayService,
+              public _u:UserService,
               public router:Router) { 
     console.log('[ HubService.constructor...');
-    this._as.isLoggedIn$.subscribe(res => this.isLoggedIn = res );
+    this._as.authstate$.subscribe(res => {
+      this._u.updateUser(res);
+      console.log('......updating user with new authstate');    
+    });
     this._as.user$.subscribe(res => this.user = res );
     this._order.monkeyReport$.subscribe(res => this.monkeyReport = res);
 

@@ -1,25 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/* tslint:disable:no-unused-variable */
 
+import { TestBed, async } from '@angular/core/testing';
 import { UpheaderComponent } from './upheader.component';
 
-describe('UpheaderComponent', () => {
-  let component: UpheaderComponent;
-  let fixture: ComponentFixture<UpheaderComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UpheaderComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UpheaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should be created', () => {
+describe('Component: Upheader', () => {
+  it('should create an instance', () => {
+    let component = new UpheaderComponent();
     expect(component).toBeTruthy();
   });
 });

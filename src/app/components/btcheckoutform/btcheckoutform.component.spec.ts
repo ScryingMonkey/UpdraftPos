@@ -1,25 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/* tslint:disable:no-unused-variable */
 
-import { BtcheckoutformComponent } from './btcheckoutform.component';
+import { TestBed, async } from '@angular/core/testing';
+import { BtComponent } from './bt.component';
 
-describe('BtcheckoutformComponent', () => {
-  let component: BtcheckoutformComponent;
-  let fixture: ComponentFixture<BtcheckoutformComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BtcheckoutformComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BtcheckoutformComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should be created', () => {
+describe('Component: Bt', () => {
+  it('should create an instance', () => {
+    let component = new BtComponent();
     expect(component).toBeTruthy();
   });
 });

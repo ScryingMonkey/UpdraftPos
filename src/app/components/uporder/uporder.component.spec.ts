@@ -1,25 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/* tslint:disable:no-unused-variable */
 
+import { TestBed, async } from '@angular/core/testing';
 import { UporderComponent } from './uporder.component';
 
-describe('UporderComponent', () => {
-  let component: UporderComponent;
-  let fixture: ComponentFixture<UporderComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UporderComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UporderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should be created', () => {
+describe('Component: Uporder', () => {
+  it('should create an instance', () => {
+    let component = new UporderComponent();
     expect(component).toBeTruthy();
   });
 });
