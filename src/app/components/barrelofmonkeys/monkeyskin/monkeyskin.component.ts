@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Monkey } from '../monkey.interface';
 import { BarrelOfMonkeysService } from '../barrelofmonkeys.service';
 
-import { TestService } from '../../../../services/test.service';
+import { TestService } from '../../../services/test.service';
 
 @Component({
     selector: 'monkey-skin',

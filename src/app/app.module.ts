@@ -1,34 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
+import { UpRoutes } from "./app.routes";
 import { AppComponent } from './app.component';
-import { BtCheckoutFormComponent } from './components/btcheckoutform/btcheckoutform.component';
-import { UpaccountComponent } from './components/upaccount/upaccount.component';
-import { UpCheckoutForm } from './components/upcheckoutform/upcheckoutform.component';
-import { UpeditorderComponent } from './components/upeditorder/upeditorder.component';
-import { UpheaderComponent } from './components/upheader/upheader.component';
-import { UporderComponent } from './components/uporder/uporder.component';
-import { UptestingfooterComponent } from './components/uptestingfooter/uptestingfooter.component';
-import { BarrelOfMonkeysComponent } from './components/uporder/barrelofmonkeys/barrelofmonkeys.component';
-import { MonkeySkinComponent } from './components/uporder/barrelofmonkeys/monkeyskin/monkeyskin.component';
+
+import { HubService } from './services/hub.service';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+
+import { UpLoginComponent } from './components/uplogin/uplogin.component';
+import { UpHeaderComponent } from './components/upheader/upheader.component';
+import { UpOrderComponent } from './components/uporder/uporder.component';
+import { UpTestingfooterComponent } from './components/uptestingfooter/uptestingfooter.component';
+import { UpWelcomeComponent } from './components/upwelcome/upwelcome.component';
+import { UpPosComponent } from './components/uppos/uppos.component';
+import { UpDashboardComponent } from './components/updashboard/updashboard.component';
+import { UpInventoryComponent } from './components/upinventory/upinventory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BtCheckoutFormComponent,
-    UpaccountComponent,
-    UpCheckoutForm,
-    UpeditorderComponent,
-    UpheaderComponent,
-    UporderComponent,
-    UptestingfooterComponent,
-    BarrelOfMonkeysComponent,
-    MonkeySkinComponent
+    UpLoginComponent,
+    UpHeaderComponent,
+    UpOrderComponent,
+    UpTestingfooterComponent,
+    UpWelcomeComponent,
+    UpPosComponent,
+    UpDashboardComponent,
+    UpInventoryComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      UpRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
-  providers: [],
+  providers: [
+    HubService,
+    AuthService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

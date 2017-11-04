@@ -15,10 +15,10 @@ export class TestService {
 
   testUser() {
     console.log('..._test.testUser:userData:');
-    console.dir(this._hub._as.userData);
+    console.dir(this._hub._u.user);
   }
 
-  get user$() { return this._hub._as.user$; }
+  get user$() { return this._hub._u.user$; }
   
   get testOrders() {
     let orders = [ {number:'00001', quantity:'1', cost:'$800', status:'PAID'},
@@ -28,7 +28,7 @@ export class TestService {
     return orders;
   }
   get testingUser() {
-    return JSON.stringify(this._hub._as.user$); }
+    return JSON.stringify(this._hub._u.user$); }
 
   updateTesting(bool:boolean) {
     this.testing.next(bool);

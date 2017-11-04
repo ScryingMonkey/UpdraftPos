@@ -11,7 +11,7 @@ import { HubService } from '../../services/hub.service';
   styleUrls: ['./upheader.component.css'],
   providers: [ ]
 })
-export class UpheaderComponent implements OnInit {
+export class UpHeaderComponent implements OnInit {
   @Input() title: string;
   @Input() links: Array<any>; // array of links.  labels are displayed.  address is handed to the router on click.
   public titleClicked = true;

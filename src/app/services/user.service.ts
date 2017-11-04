@@ -14,7 +14,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class UserService {
   public user: BehaviorSubject<any>;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(_afdb: AngularFireDatabase) {
    }
 
   updateUser(authstate){

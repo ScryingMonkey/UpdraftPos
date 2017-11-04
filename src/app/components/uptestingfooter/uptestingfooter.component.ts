@@ -7,7 +7,7 @@ import { TestService } from '../../services/test.service';
   templateUrl: './uptestingfooter.component.html',
   styleUrls: ['./uptestingfooter.component.css']
 })
-export class UptestingfooterComponent implements OnInit {
+export class UpTestingfooterComponent implements OnInit {
 
   constructor( private _test:TestService ) {  }
 

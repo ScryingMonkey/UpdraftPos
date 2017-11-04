@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FORM_DIRECTIVES }   from '@angular/forms';
 
 import { Monkey } from './monkey.interface';
 import { MonkeySkinComponent } from './monkeyskin/monkeyskin.component';
@@ -8,8 +7,7 @@ import { BarrelOfMonkeysService } from './barrelofmonkeys.service';
 @Component({
     selector: 'barrel-of-monkeys',
     templateUrl: 'barrelofmonkeys.component.html',
-    providers: [BarrelOfMonkeysService],
-    directives: [MonkeySkinComponent, FORM_DIRECTIVES]
+    providers: [BarrelOfMonkeysService]
 })
 export class BarrelOfMonkeysComponent implements OnInit {
     @Input() bom: Array<any>;
