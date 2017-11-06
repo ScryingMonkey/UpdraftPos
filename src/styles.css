@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+.clicked {
+    color: red;
+  }
+  .test-border{
+    /*border: .5px solid red;*/
+  }
+  .row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+/* Header */
+.page-header{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .upheader-box{
+    background-color: rgba(188, 203, 255, 0.712);
+    height: 100px;
+    width: 110%;
+  }
+  .upheader-title{
+    height: 60px;
+    /* text-align: left; */
+    color:rgb(0, 0, 0); 
+    margin: 0px 0px;
+    font-size: 50px;
+    font-weight: 100;
+  }
+  .upheader-subtitle{
+    text-align: center;
+    color:rgb(82, 82, 82);
+  }
+  .logged-in-status{
+    text-align: right;
+    vertical-align: bottom;
+    font-size: 15px;
+    font-weight: 200;
+    color:rgb(82, 82, 82);
+    }
+  .logged-in-status a {
+    color: rgb(82, 82, 82);
+    font-size: 15px;
+  }
+  .logged-in-status a:hover {
+    color: rgb(38, 0, 255);
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .img-user {
+    border-radius: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .uplogo-container {
+    height: inherit;
+    width: 130px;
+    background: url(/assets/UpdraftIcon01.png) no-repeat center center/70%;
+    margin: 0px 0px;
+    align-content: center;
+  }
+  .upheader-content{
+    height: inherit;
+  }
+  .upheader-navbar{
+    text-align: right;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  ul > li {
+      display: inline-block;
+      margin-right: 40px;
+  }
+  .upheader-nav-button {
+    color: #BCAAA4;
+  }
+    /* Change the link color on hover */
+  .upheader-nav-button:hover {
+      color: #D7CCC8;
+      cursor: pointer;
+  }
+/* Login Component */
+.login-panel {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    width: 50%;
+    align-content: center;
+    /* border: 1px solid #78b424; */
+    font: normal normal lighter 45px/50px 'Calibri', sans-serif; 
+}
+.login-input {
+width: 90%; 
+font: normal normal lighter 45px/60px 'Gerogia', sans-serif;
+height: auto;
+}
+
+  

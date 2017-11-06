@@ -2,21 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { UpRoutes } from "./app.routes";
 import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
+import { UpRoutes } from "./app.routes";
 
-import { HubService } from './services/hub.service';
-import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
-import { UpLoginComponent } from './components/uplogin/uplogin.component';
-import { UpHeaderComponent } from './components/upheader/upheader.component';
-import { UpOrderComponent } from './components/uporder/uporder.component';
-import { UpTestingfooterComponent } from './components/uptestingfooter/uptestingfooter.component';
-import { UpWelcomeComponent } from './components/upwelcome/upwelcome.component';
-import { UpPosComponent } from './components/uppos/uppos.component';
-import { UpDashboardComponent } from './components/updashboard/updashboard.component';
-import { UpInventoryComponent } from './components/upinventory/upinventory.component';
+import { HubService, AuthService, TestService, UserService } from './services/index';
+import {UpDashboardComponent, UpHeaderComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent} from "./components/index"
 
 @NgModule({
   declarations: [
@@ -32,6 +30,10 @@ import { UpInventoryComponent } from './components/upinventory/upinventory.compo
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     RouterModule.forRoot(
       UpRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -40,7 +42,11 @@ import { UpInventoryComponent } from './components/upinventory/upinventory.compo
   providers: [
     HubService,
     AuthService,
-    UserService
+    UserService,
+    TestService,
+    // AngularFirestore,
+    // AngularFirestoreDocument,
+    AngularFireAuth
   ],
   bootstrap: [AppComponent]
 })

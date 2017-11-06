@@ -3,6 +3,7 @@ import { BehaviorSubject } from "rxjs/Rx";
 import { Observable} from 'rxjs/observable';
 import { Subject }    from 'rxjs/Subject';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { User } from '../models/index';
 
 //https://github.com/angular/angularfire2/blob/master/docs/rtdb/lists.md
 // const promise = db.list('items').remove();
@@ -12,9 +13,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class UserService {
-  public user: BehaviorSubject<any>;
+  public user: BehaviorSubject<any> = BehaviorSubject.create(new User());
 
   constructor(_afdb: AngularFireDatabase) {
+
    }
 
   updateUser(authstate){
