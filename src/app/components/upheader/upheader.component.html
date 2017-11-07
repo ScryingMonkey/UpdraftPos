@@ -8,16 +8,16 @@
 
     <div class="row upheader-title test-border">
       <div class="col-md-4">{{ title }}</div>
-      <div *ngIf="_hub.loggedIn$ | async" class="col-md-2 logged-in-status" >
+      <div *ngIf="loggedIn" class="col-md-2 logged-in-status" >
         Logged in as: <br>
         {{ user.displayName }}
       </div>
-      <div *ngIf="_hub.loggedIn$ | async" class="col-md-1" >
+      <div *ngIf="loggedIn" class="col-md-1" >
         <img src="{{ user.photoURL }}" class="img-user">
       </div>
     </div>
 
-    <div *ngIf="_hub.loggedIn$ | async" class="row upheader-navbar test-border">
+    <div *ngIf="loggedIn" class="row upheader-navbar test-border">
       <div class="col-md-12">
         <ul>
           <li *ngFor="let link of links" 

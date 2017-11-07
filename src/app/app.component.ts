@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HubService } from './services/index';
+import { HubService } from './services/hub.service';
 
 @Component({
   selector: 'app-root',

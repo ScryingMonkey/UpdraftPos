@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TestService } from '../../services/test.service';
+import { HubService } from '../../services/hub.service';
 
 @Component({
   selector: 'app-uptestingfooter',
   templateUrl: './uptestingfooter.component.html',
   styleUrls: ['./uptestingfooter.component.css']
 })
-export class UpTestingfooterComponent implements OnInit {
+export class UpTestingfooterComponent {
+  private testing:boolean;
 
-  constructor( private _test:TestService ) {  }
-
-  ngOnInit() {
+  constructor( private _hub:HubService ) { 
+    this._hub._test.testing$.subscribe(res => this.testing = res);
   }
 
 }

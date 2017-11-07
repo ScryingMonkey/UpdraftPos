@@ -13,7 +13,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
-import { HubService, AuthService, TestService, UserService } from './services/index';
+import { AuthService, TestService, UserService } from './services/index';
+import { HubService } from './services/hub.service';
 import {UpDashboardComponent, UpHeaderComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent} from "./components/index"
 
 @NgModule({

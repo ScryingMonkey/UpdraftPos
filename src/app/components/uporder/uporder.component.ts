@@ -22,10 +22,10 @@ export class UpOrderComponent implements OnInit {
 
   ngOnInit() { 
     console.log('[ UporderComponent.ngOnInit()...');
-    if(!this._hub.isLoggedIn) {
-      console.log('...not logged in.  Redirecting...');
-      this._hub.navigate('/login');
-    }
+    // if(!this._hub.isLoggedIn) {
+    //   console.log('...not logged in.  Redirecting...');
+    //   this._hub.navigate('/login');
+    // }
   }
 
  // https://angular.io/docs/ts/latest/tutorial/toh-pt5.html

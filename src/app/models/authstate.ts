@@ -1,10 +1,10 @@
-export class User {
-    public key: string;
+export class AuthState {
     public displayName: string;
     public email: string;
-    public userType: string; // member or coach
-    // public stats:Array<any>;
-    // public permissions = [];
+    public emailVerified: boolean;
+    public photoURL: string;
+    public uid: boolean;
+    
     
     constructor() {
         let u = {

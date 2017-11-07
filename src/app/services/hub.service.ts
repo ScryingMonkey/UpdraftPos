@@ -5,8 +5,7 @@ import { Subject }    from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/Rx";
 import { Router }   from '@angular/router';
 
-import { AuthService } from './auth.service';
-import { UserService } from './user.service';
+import { AuthService, TestService, UserService } from './index';
 
 @Injectable()
 export class HubService {
@@ -30,22 +29,38 @@ export class HubService {
 
   constructor(public _as:AuthService, 
               public _u:UserService,
-              public router:Router) { 
+              public _test:TestService,
+              public router:Router
+            ) { 
     console.log('[ HubService.constructor...');
     this._as.authstate$.subscribe(res => {
-      this._u.updateUser(res);
-      console.log('......updating user with new authstate');    
+      console.log('[ HubService._as.authstate$.subscribe');
+      if(res){
+        console.log('...updating user with new authstate');    
+        console.dir(res);
+        console.log('......routing to Welcome page.');  
+        this.navigate("welcome");          
+        this._u.updateUser(res);
+      }else{
+        console.log('...authstate is null.');
+        this.navigate("login");        
+      }
     });
     this._u.user$.subscribe(res => {
+      console.log('[ HubService._u.user$.subscribe');      
       this.user = res;
-      console.log('......user updated.  Routing to Welcome page.');    
-      this.navigate("welcome");    
+      console.log('...updating user');          
+      console.dir(res);
     });
   }
 
   // Helper methods
   navigate(address:string) {
     this.router.navigate([address]);
+  }
+
+  loginWithGoogle(){
+    this._as.loginWithGoogle();
   }
 
   logout() {
@@ -56,7 +71,7 @@ export class HubService {
   
   // Getters
   get headerLinks$():Observable<Array<any>> { return this.headerLinks.asObservable(); }
-  get isLoggedIn():boolean {return !(this._as.authstate.getValue() == null);}
+  // get isLoggedIn():boolean {return !(this._as.authstate.getValue() == null);}
   get user$():Observable<any> { return this._u.user.asObservable(); }
 
   // Setters
