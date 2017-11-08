@@ -20,7 +20,7 @@ export class UpHeaderComponent implements OnInit {
     this.title = this._hub.title;
     this._hub.headerLinks$.subscribe(res => this.links = res);
     // subscribe to the user object for the app
-    this._hub.user$.subscribe(res => this.user = res );
+    this._hub._u.user$.subscribe(res => this.user = res );
   }
 
   ngOnInit() {

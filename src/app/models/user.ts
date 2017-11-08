@@ -41,4 +41,6 @@ export class User {
     createKey(email){ 
         return email.replace('@','AT').replace('.','DOT'); 
     }
+    
+    get json() { return JSON.stringify(this); }
 }

@@ -7,7 +7,7 @@
   <button (click)="_hub._test.updateTesting(false)">Stop Testing</button>
   <button (click)="_hub.logout()">Log Out</button>
   <div *ngIf="testing" class="test-border">
-    user: {{ _hub.user$ | async }}<br>
+    user: {{ user.json }}<br>
     order: <b>TODO!!</b><br>
   </div>
 </div>

@@ -50,7 +50,6 @@ export class HubService {
   get headerLinks$():Observable<Array<any>> { return this.headerLinks.asObservable(); }
   // get isLoggedIn():boolean {return !(this._as.authstate.getValue() == null);}
   get isLoggedIn$():Observable<any> { return this.isLoggedIn.asObservable(); }
-  get user$():Observable<any> { return this._u.user.asObservable(); }
 
   // Setters
   updateHeaderLinks$(links:Array<any>) { 

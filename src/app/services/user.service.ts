@@ -19,8 +19,7 @@ import { User } from '../models/index';
 
 @Injectable()
 export class UserService {
-  public user: BehaviorSubject<User> = new BehaviorSubject(new User());
-  private staticUser: User = new User();
+  private user: BehaviorSubject<User> = new BehaviorSubject(new User());
 
   constructor(private _afdb:AngularFireDatabase, private _afAuth:AngularFireAuth) {
     this._afAuth.authState.subscribe(res => {
@@ -53,7 +52,7 @@ export class UserService {
     console.log('...user updated:');    
     // console.dir(this.user.value);  
   }
-  pullUpdateFromAuthstate(authstate){
+  private pullUpdateFromAuthstate(authstate){
     console.log('[ UserService.pullUpdateFromAuthstate(authstate)...');        
     let update = {
       displayName: authstate.displayName,
@@ -62,7 +61,7 @@ export class UserService {
     };
     return update;
   }
-  pullUpdateFromDb(userKey:string){
+  private pullUpdateFromDb(userKey:string){
     console.log('[ UserService.pullUpdateFromDb(userKey)...');            
     let update = {testDataFromDb: "TEST!"};
     //TODO: Pull user from userdb.  Update user object.
@@ -72,7 +71,7 @@ export class UserService {
   }
 
   // Helpers
-  createUserKey(email){ 
+  private createUserKey(email){ 
     return email.replace('@','AT').replace('.','DOT'); 
   }
   // Getters
