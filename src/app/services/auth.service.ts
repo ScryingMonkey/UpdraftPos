@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   // get authstate$() {return this._afAuth.authState.asobservable();}
-  get authstate$() { return this._afAuth.authState; }
+  // get authstate$() { return this._afAuth.authState; }
 
   // get showAuthState() {
   //   console.log('..._as.showAuthState:authstate');

@@ -31,9 +31,9 @@ export class UpLoginComponent implements OnInit {
     console.log("[UpLoginComponent.loginWithEmail("+email+", "+password+")");
     this._hub._as.loginWithEmail(email, password); 
   }
-  loginWithGoogle() { this._hub.loginWithGoogle(); }
+  loginWithGoogle() { this._hub._as.loginWithGoogle(); }
   loginWithFacebook() { this._hub._as.loginWithFacebook(); }
-  logout() { this._hub.logout(); }
+  logout() { this._hub. _as.logout(); }
   // loginTester() { this._hub._as.loginTester(); }
 
 }

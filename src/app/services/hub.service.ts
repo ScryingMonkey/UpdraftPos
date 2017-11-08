@@ -17,12 +17,12 @@ export class HubService {
     {'title':'inventory', 'address':'inventory'},
     {'title':'dashboard', 'address':'dashboard'}
   ];
-  public headerLinks: BehaviorSubject<Array<any>> = 
-                          new BehaviorSubject(this.pages);
-  public lastLink: Object = {'label':'Log Out', 'address':'logout'};
+  private lastLink: Object = {'label':'Log Out', 'address':'logout'};
 
-  public authstate;
-  public user;
+  private headerLinks: BehaviorSubject<Array<any>> = 
+                          new BehaviorSubject(this.pages);
+  private isLoggedIn: BehaviorSubject<boolean> = 
+                          new BehaviorSubject(false);
   public order;
   public customer;
   public products;
@@ -30,27 +30,14 @@ export class HubService {
   constructor(public _as:AuthService, 
               public _u:UserService,
               public _test:TestService,
-              public router:Router
+              private router:Router
             ) { 
     console.log('[ HubService.constructor...');
-    this._as.authstate$.subscribe(res => {
-      console.log('[ HubService._as.authstate$.subscribe');
-      if(res){
-        console.log('...updating user with new authstate');    
-        console.dir(res);
-        console.log('......routing to Welcome page.');  
-        this.navigate("welcome");          
-        this._u.updateUser(res);
-      }else{
-        console.log('...authstate is null.');
-        this.navigate("login");        
-      }
-    });
     this._u.user$.subscribe(res => {
-      console.log('[ HubService._u.user$.subscribe');      
-      this.user = res;
-      console.log('...updating user');          
+      console.log('[ HubService._u.user$.subscribe');
+      console.log('...received user update:');      
       console.dir(res);
+      this.navigate('welcome');
     });
   }
 
@@ -58,20 +45,11 @@ export class HubService {
   navigate(address:string) {
     this.router.navigate([address]);
   }
-
-  loginWithGoogle(){
-    this._as.loginWithGoogle();
-  }
-
-  logout() {
-    console.log("...HubService.logout()");
-    this._as.logout();
-    this.router.navigate(['/logout']);
-  }
   
   // Getters
   get headerLinks$():Observable<Array<any>> { return this.headerLinks.asObservable(); }
   // get isLoggedIn():boolean {return !(this._as.authstate.getValue() == null);}
+  get isLoggedIn$():Observable<any> { return this.isLoggedIn.asObservable(); }
   get user$():Observable<any> { return this._u.user.asObservable(); }
 
   // Setters

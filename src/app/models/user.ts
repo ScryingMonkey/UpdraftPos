@@ -3,36 +3,42 @@ export class User {
     public displayName: string;
     public email: string;
     public userType: string; // member or coach
+    public testFromModel: string;
     // public stats:Array<any>;
     // public permissions = [];
     
     constructor() {
+        this.testFromModel = "TEST!";
+        // this.displayName = "Test User";
+        // this.email = "test@test.com";
+        // this.userType = "testUser";
+        // this.createKey();
         let u = {
-            displayname:"New User",
+            displayName:"New User",
             email: "new@new.com",
             userType: "newUser"
         };
-        this.setValues(u);
+        this.updateValues(u);
     }
     testUser():User {       
         let nuser = new User();
         let u = {
-            displayname:"Test User",
+            displayName:"Test User",
             email: "test@test.com",
             userType: "testUser"
         };
-        nuser.setValues(u);
+        nuser.updateValues(u);
         return nuser; 
     }
-    setValues(u:Object) {
-        for (let k in u){
-            if(u.hasOwnProperty(k)){
-                this[k] = u[k];
+    updateValues(update:Object) {
+        for (let k in update){
+            if(update.hasOwnProperty(k)){
+                this[k] = update[k];
             }
         }
-        this.key = this.createKey();           
+        this.key = this.createKey(this.email);           
     }
-    createKey(){ 
-        return this.email.replace('@','AT').replace('.','DOT'); 
+    createKey(email){ 
+        return email.replace('@','AT').replace('.','DOT'); 
     }
 }
