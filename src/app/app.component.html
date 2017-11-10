@@ -1,6 +1,12 @@
 <div class="fluid-container">
-  <app-upheader [title]="title"></app-upheader>
-  <router-outlet></router-outlet>
-  <app-uptestingfooter></app-uptestingfooter>
+  <div class="row">
+    <app-upheader [title]="title"></app-upheader>
+  </div>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="row">
+    <app-uptestingfooter></app-uptestingfooter>
+  </div>
 </div>
 

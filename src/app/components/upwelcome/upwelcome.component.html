@@ -1,3 +1,22 @@
-<p>
-  welcome works!
-</p>
+<div class="row">
+  <div class="col-md-1"></div>      
+  <div class="col-md-5">
+    <app-userpane></app-userpane>
+  </div>
+  <div class="col-md-6 row-centered">
+    <!-- <br>
+    <h1>Buttons!</h1> -->
+    <br><br>
+
+    <!-- <div class="col-md-6 row-centered"> -->
+    <div *ngFor="let link of welcomeLinks"
+      class="big-button" 
+      (click)="go(link.address)">
+        <h3>{{ link.label }}</h3>
+    </div>
+    <!-- </div> -->
+
+    <br>
+  </div>
+  <!-- <div class="col-md-1"></div>        -->
+</div>

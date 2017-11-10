@@ -4,6 +4,7 @@ export class User {
     public email: string;
     public userType: string; // member or coach
     public testFromModel: string;
+    public photoURL: string;
     // public stats:Array<any>;
     // public permissions = [];
     
@@ -16,7 +17,8 @@ export class User {
         let u = {
             displayName:"New User",
             email: "new@new.com",
-            userType: "newUser"
+            userType: "newUser",
+            photoURL: "no.url"
         };
         this.updateValues(u);
     }
@@ -25,7 +27,8 @@ export class User {
         let u = {
             displayName:"Test User",
             email: "test@test.com",
-            userType: "testUser"
+            userType: "testUser",
+            photoURL: "test.url"            
         };
         nuser.updateValues(u);
         return nuser; 

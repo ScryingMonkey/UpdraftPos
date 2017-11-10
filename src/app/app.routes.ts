@@ -15,7 +15,7 @@ export const UpRoutes: Routes = [
     { path: 'pos', component: UpPosComponent },
     { path: 'inventory', component: UpInventoryComponent },
     { path: 'dashboard', component: UpDashboardComponent },
-    { path: '**', redirectTo: '/login', pathMatch: 'full' }
+    { path: '**', redirectTo: '/welcome', pathMatch: 'full' }
 ];
 
 import { RouterModule }   from '@angular/router';

@@ -20,7 +20,8 @@ import { User } from '../models/index';
 @Injectable()
 export class UserService {
   private user: BehaviorSubject<User> = new BehaviorSubject(new User());
-
+  private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  
   constructor(private _afdb:AngularFireDatabase, private _afAuth:AngularFireAuth) {
     this._afAuth.authState.subscribe(res => {
       console.log('[ UserService._afAuth.authState.subscribe...');
@@ -33,8 +34,10 @@ export class UserService {
         let dbUpdate = this.pullUpdateFromDb(this.createUserKey(authUpdate.email)); // update data from db
         let update = Object.assign(authUpdate,dbUpdate);  // merge update objects
         this.updateUser(update);  // update user from update data
+        this.isLoggedIn.next(true);        
       } else {
         console.log("...authstate is null")
+        this.isLoggedIn.next(false);
       }
     });
    }
@@ -57,7 +60,8 @@ export class UserService {
     let update = {
       displayName: authstate.displayName,
       email: authstate.email,
-      userType: "user"
+      userType: "user",
+      photoURL: authstate.photoURL      
     };
     return update;
   }
@@ -75,7 +79,8 @@ export class UserService {
     return email.replace('@','AT').replace('.','DOT'); 
   }
   // Getters
-  get user$(){ return this.user.asObservable()}
+  get isLoggedIn$(){ return this.isLoggedIn.asObservable(); }
+  get user$(){ return this.user.asObservable(); }
   get showUser() {
     console.log('..._u.showUser:user');
     console.dir(this.user.getValue());

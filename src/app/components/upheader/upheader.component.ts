@@ -12,12 +12,13 @@ import { HubService } from '../../services/hub.service';
 export class UpHeaderComponent implements OnInit {
   title: string;
   links: Array<any>; // array of objects {label,address}.  labels are displayed.  address is handed to the router on click.
-  private loggedIn:boolean = false;
+  private isLoggedIn:boolean = false;
   private user;
 
   constructor(private _hub: HubService) { 
     console.log('[ UpheaderComponent.constructor ]');
     this.title = this._hub.title;
+    this._hub._u.isLoggedIn$.subscribe(res => this.isLoggedIn = res);
     this._hub.headerLinks$.subscribe(res => this.links = res);
     // subscribe to the user object for the app
     this._hub._u.user$.subscribe(res => this.user = res );
@@ -27,7 +28,7 @@ export class UpHeaderComponent implements OnInit {
     // console.log('[ UpheaderComponent.ngOnInit() ]');
   }
 
-  onClick(address) { 
+  go(address) { 
     console.log("...in UpheaderComponent.onClick("+address+")");
     if(address === 'logout') {
       this._hub._as.logout();

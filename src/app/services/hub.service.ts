@@ -11,11 +11,11 @@ import { AuthService, TestService, UserService } from './index';
 export class HubService {
   public title = "Updraft POS";
   private pages = [
-    {'title':'login', 'address':'login'},
-    {'title':'welcome', 'address':'welcome'},
-    {'title':'pos', 'address':'pos'},
-    {'title':'inventory', 'address':'inventory'},
-    {'title':'dashboard', 'address':'dashboard'}
+    {'label':'login', 'address':'login'},
+    {'label':'welcome', 'address':'welcome'},
+    {'label':'pos', 'address':'pos'},
+    {'label':'inventory', 'address':'inventory'},
+    {'label':'dashboard', 'address':'dashboard'}
   ];
   private lastLink: Object = {'label':'Log Out', 'address':'logout'};
 
@@ -48,8 +48,6 @@ export class HubService {
   
   // Getters
   get headerLinks$():Observable<Array<any>> { return this.headerLinks.asObservable(); }
-  // get isLoggedIn():boolean {return !(this._as.authstate.getValue() == null);}
-  get isLoggedIn$():Observable<any> { return this.isLoggedIn.asObservable(); }
 
   // Setters
   updateHeaderLinks$(links:Array<any>) { 

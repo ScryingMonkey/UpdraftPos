@@ -15,7 +15,8 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 
 import { AuthService, TestService, UserService } from './services/index';
 import { HubService } from './services/hub.service';
-import {UpDashboardComponent, UpHeaderComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent} from "./components/index"
+import {UpDashboardComponent, UpHeaderComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent} from "./components/index";
+import { UserPaneComponent } from './components/userpane/userpane.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {UpDashboardComponent, UpHeaderComponent, UpInventoryComponent, UpLoginCo
     UpWelcomeComponent,
     UpPosComponent,
     UpDashboardComponent,
-    UpInventoryComponent
+    UpInventoryComponent,
+    UserPaneComponent
   ],
   imports: [
     BrowserModule,
