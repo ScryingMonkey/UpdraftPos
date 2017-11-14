@@ -15,21 +15,23 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 
 import { AuthService, TestService, UserService } from './services/index';
 import { HubService } from './services/hub.service';
-import {UpDashboardComponent, UpHeaderComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent} from "./components/index";
-import { UserPaneComponent } from './components/userpane/userpane.component'
+import { UpHeaderDesktopComponent, UptoplinksComponent, UpheaderMobileComponent } from './components/upheader/index';
+import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent, UserPaneComponent } from "./components/index";
 
 @NgModule({
   declarations: [
     AppComponent,
     UpLoginComponent,
-    UpHeaderComponent,
+    UpHeaderDesktopComponent,
     UpOrderComponent,
     UpTestingfooterComponent,
     UpWelcomeComponent,
     UpPosComponent,
     UpDashboardComponent,
     UpInventoryComponent,
-    UserPaneComponent
+    UserPaneComponent,
+    UptoplinksComponent,
+    UpheaderMobileComponent
   ],
   imports: [
     BrowserModule,

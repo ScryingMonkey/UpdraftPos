@@ -1,17 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { HubService } from '../../services/hub.service';
+import { HubService } from '../../../services/hub.service';
 
 @Component({
-  selector: 'app-upheader',
-  templateUrl: './upheader.component.html',
-  styleUrls: ['./upheader.component.css'],
+  selector: 'upheader-desktop',
+  templateUrl: './upheader-desktop.component.html',
+  styleUrls: ['./upheader-desktop.component.css'],
   providers: [ ]
 })
-export class UpHeaderComponent implements OnInit {
+export class UpHeaderDesktopComponent implements OnInit {
   title: string;
-  links: Array<any>; // array of objects {label,address}.  labels are displayed.  address is handed to the router on click.
   private isLoggedIn:boolean = false;
   private user;
 
@@ -19,7 +18,6 @@ export class UpHeaderComponent implements OnInit {
     console.log('[ UpheaderComponent.constructor ]');
     this.title = this._hub.title;
     this._hub._u.isLoggedIn$.subscribe(res => this.isLoggedIn = res);
-    this._hub.headerLinks$.subscribe(res => this.links = res);
     // subscribe to the user object for the app
     this._hub._u.user$.subscribe(res => this.user = res );
   }

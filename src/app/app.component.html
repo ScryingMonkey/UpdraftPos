@@ -1,13 +1,19 @@
 <!-- <div class="container"> -->
-<div class="fluid-container">
-  <div class="row">
-    <app-upheader [title]="title"></app-upheader>
+<div class="contain-fluid">
+{{width}}
+
+<!-- big screen header -->
+  <div *ngIf="width > 500">
+    <upheader-desktop [title]="title"></upheader-desktop>
   </div>
-  <div class="row">
-    <router-outlet></router-outlet>
-  </div>
-  <div class="row">
-    <app-uptestingfooter></app-uptestingfooter>
-  </div>
+<!-- small screen header -->
+  <div *ngIf="width < 501">
+    <upheader-mobile [title]="title"></upheader-mobile>  
+  </div>    
+<!-- Main display body -->       
+  <router-outlet></router-outlet>
+<!-- testing footer -->    
+  <app-uptestingfooter></app-uptestingfooter>
+
 </div>
 

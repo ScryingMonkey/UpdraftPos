@@ -1,0 +1,61 @@
+
+<!-- <div class="fluid-container">
+<div class = "row upheader-box">
+  <div class="col-md-1 uplogo-container"></div>
+
+  <div class= "col-sm-4">
+    <div class="upheader-content upheader-title"><h1>{{ title }}</h1></div>      
+  </div>
+
+  <div class= "col-sm-3">
+    <div class="row">
+
+      <div class= "col-sm-6">
+        <div *ngIf="isLoggedIn" class="logged-in-status" >
+          Logged in as: <br>
+          {{ user.displayName }}
+        </div>
+      </div>
+      
+      <div class= "col-sm-6"> 
+        <div *ngIf="isLoggedIn" class="" >
+          <img src="{{ user.photoURL }}" class="img-user">
+        </div>
+      </div>
+
+    </div>      
+  </div>  
+</div>
+<hr> -->
+
+<!-- top bar -->
+<div class = "row upheader-box">
+  <!-- logo image -->
+  <div class="col-md-1 uplogo-container"></div>
+<!-- title -->
+  <div class= "col-md-7">
+    <div class = "title">{{ title }}</div>
+  </div>
+<!-- login indicator -->
+  <div class= "col-md-3" *ngIf="isLoggedIn" >
+    <div class="row">
+      <!-- user name -->
+      <div class= "col-sm-4 logged-in-status">
+        Logged in as: <br>
+        {{ user.displayName }}
+      </div>
+      <!-- user photo -->
+      <div class= "col-sm-4"> 
+        <img src="{{ user.photoURL }}" class="img-user">
+      </div>
+      <div class= "col-sm-4"> </div>          
+    </div>      
+  </div>  
+</div>
+<!-- top links -->
+<div class="row align-items-end">
+  <div class="col">
+    <uptoplinks></uptoplinks>
+  </div>
+</div>
+<hr>

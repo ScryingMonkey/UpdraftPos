@@ -23,10 +23,12 @@ export class HubService {
                           new BehaviorSubject(this.pages);
   private isLoggedIn: BehaviorSubject<boolean> = 
                           new BehaviorSubject(false);
+  private screenWidth:BehaviorSubject<number> = new BehaviorSubject(500);
   public order;
   public customer;
   public products;
-
+  
+  
   constructor(public _as:AuthService, 
               public _u:UserService,
               public _test:TestService,
@@ -47,9 +49,10 @@ export class HubService {
   }
   
   // Getters
-  get headerLinks$():Observable<Array<any>> { return this.headerLinks.asObservable(); }
-
+  get $headerLinks():Observable<Array<any>> { return this.headerLinks.asObservable(); }
+  get $screenWidth():Observable<number> { return this.screenWidth.asObservable(); }
   // Setters
+  updateScreenWidth(w:number){ this.screenWidth.next(w);}
   updateHeaderLinks$(links:Array<any>) { 
     // set the last link (Input from parent) in links to "Log Out"
     links.push(this.lastLink);
