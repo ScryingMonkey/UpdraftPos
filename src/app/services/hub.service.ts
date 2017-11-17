@@ -5,7 +5,7 @@ import { Subject }    from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/Rx";
 import { Router }   from '@angular/router';
 
-import { AuthService, TestService, UserService } from './index';
+import { AuthService, TestService, UserService, OrderService } from './index';
 
 @Injectable()
 export class HubService {
@@ -24,6 +24,7 @@ export class HubService {
   private isLoggedIn: BehaviorSubject<boolean> = 
                           new BehaviorSubject(false);
   private screenWidth:BehaviorSubject<number> = new BehaviorSubject(500);
+  public user;
   public order;
   public customer;
   public products;
@@ -31,15 +32,26 @@ export class HubService {
   
   constructor(public _as:AuthService, 
               public _u:UserService,
+              public _o:OrderService,
               public _test:TestService,
               private router:Router
             ) { 
     console.log('[ HubService.constructor...');
-    this._u.user$.subscribe(res => {
-      console.log('[ HubService._u.user$.subscribe');
-      console.log('...received user update:');      
+    this._u.isLoggedIn$.subscribe(res => {
+      console.log('[ HubService._u.isLoggedIn$.subscribe');
+      console.log('...received update:');      
       console.dir(res);
-      this.navigate('welcome');
+      if (res) {
+        console.log('...logged in, navigating to "welcome".');          
+        this.navigate('welcome');
+      } else {
+        console.log('...not logged in, navigating to "login".');                  
+        this.navigate('login');
+      }
+    });
+    this._o.order$.subscribe
+    this._u.user$.subscribe(res => {
+      this._o.updateOrderAttrib('employeeKey', res.key);
     });
   }
 
@@ -49,8 +61,8 @@ export class HubService {
   }
   
   // Getters
-  get $headerLinks():Observable<Array<any>> { return this.headerLinks.asObservable(); }
-  get $screenWidth():Observable<number> { return this.screenWidth.asObservable(); }
+  get headerLinks$():Observable<Array<any>> { return this.headerLinks.asObservable(); }
+  get screenWidth$():Observable<number> { return this.screenWidth.asObservable(); }
   // Setters
   updateScreenWidth(w:number){ this.screenWidth.next(w);}
   updateHeaderLinks$(links:Array<any>) { 

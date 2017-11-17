@@ -13,7 +13,7 @@ export class UptoplinksComponent implements OnInit {
   constructor(private _hub:HubService) { 
     console.log("[ UptoplinksComponent.constructor...");    
     this._hub._u.isLoggedIn$.subscribe(res => this.isLoggedIn = res);    
-    this._hub.$headerLinks.subscribe(res => {
+    this._hub.headerLinks$.subscribe(res => {
       console.log("...in UptoplinksComponent._hub.headerLinks$.subscribe");    
       this.links = res;
       console.dir(this.links);        

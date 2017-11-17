@@ -16,12 +16,14 @@ export class AppComponent implements AfterViewInit{
   private width; 
   
   constructor(private _hub:HubService) {
-    this._hub.$screenWidth.subscribe(res => this.width = res);
+    this._hub.screenWidth$.subscribe(res => this.width = res);
+    this._hub.updateScreenWidth(document.documentElement.clientWidth);
+  
     this.$resizeEvent = 
-    Observable.fromEvent(window, 'resize', ()=>document.documentElement.clientWidth)
-      .debounceTime(200);
+      Observable.fromEvent(window, 'resize', ()=>document.documentElement.clientWidth)
+        .debounceTime(200);
     this.$resizeEvent.subscribe(res => this._hub.updateScreenWidth(res));
   }
 
-  ngAfterViewInit() { this.width = document.documentElement.clientWidth; }
+  ngAfterViewInit() {  }
 }

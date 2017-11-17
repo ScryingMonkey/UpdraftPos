@@ -13,7 +13,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
-import { AuthService, TestService, UserService } from './services/index';
+import { AuthService, TestService, UserService, OrderService } from './services/index';
 import { HubService } from './services/hub.service';
 import { UpHeaderDesktopComponent, UptoplinksComponent, UpheaderMobileComponent } from './components/upheader/index';
 import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent, UserPaneComponent } from "./components/index";
@@ -48,6 +48,7 @@ import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderCo
     HubService,
     AuthService,
     UserService,
+    OrderService,
     TestService,
     // AngularFirestore,
     // AngularFirestoreDocument,

@@ -1,3 +1,42 @@
-<p>
-  pos works!
-</p>
+<div class="row">
+    <div class="col-md-6">
+      <div class="title">
+        TOTAL: {{ order.total }}
+      </div>
+      <br>
+      <div>
+        <label for="txteanucc13">Enter EAN/USS-13 Number:</label>   
+        <button id="btnAddItem" class="btn btn-action" (click)="addItem(txteanucc13)" >Add Item</button>
+        <br><br>
+        <input id="txteanucc13" class= "input-sm login-input" type="text" placeholder="eanucc13 #">
+        <br>
+      </div>
+      <br><br>
+      <b>Items:</b>
+      <ol class="">
+        <li *ngFor="let item of order.items" 
+          class="med-tile" 
+          (click)="click()"
+          (mouseenter)="mouseenter(item)">
+          <div >
+            <b>{{ item.displayName }}: {{ item.price }}</b><br>
+            eanucc13: {{ item.eanucc13 }}<br>
+            upca {{ item.upca }}<br>
+          </div>
+        </li><br>
+      </ol><br>
+
+    </div> 
+
+    <div class="col-md-6">
+      <b>Item Detail</b><br>
+      <div class = "med-tile">
+        <b>{{ item.displayName }}</b><br>
+        Cost: {{ item.cost }}<br>
+        Price: {{ item.price }}<br>
+        Margin: {{ (item.price-item.cost) }}<br>
+        Description: {{ item.description }}<br>
+        {{ detail }}<br>
+      </div>
+    </div>
+  </div>
