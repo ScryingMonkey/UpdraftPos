@@ -22,9 +22,9 @@ export class OrderService {
   totalOrder(o):number {
     let total = 0.00;
     o.items.forEach(el => {
-      total += el.price;
+      total += el.price*100;
     });
-    return total;
+    return total/100;
   }
   pullItemFromDB(eanucc13:number):Item {
     let item = new Item();
@@ -77,5 +77,18 @@ export class OrderService {
     console.log("...TODO!! Lookup item in database.  Using new Item() for now.")
     this.addItem(i);
     return i;
+  }
+  removeItem(item:Item):Item {
+    let eanucc13 = item.eanucc13;
+    let o = this.order.value;
+    for (var i = 0; i < o.items.length; i++) {
+      if(o.items[i].eanucc13 == eanucc13){
+        o.items.splice(i,1);
+        item = o.items[i];
+      }
+    }
+    o.total = this.totalOrder(o);
+    this.updateOrder(o);
+    return item;
   }
 }

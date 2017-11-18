@@ -21,8 +21,9 @@ export class UpPosComponent implements OnInit {
   ngOnInit() {
   }
 
-  click() {
+  click(item) {
     // remove item from order
+    this._hub._o.removeItem(item);
   }
   mouseenter(item) {
     // update item detail with item that is hovered over
