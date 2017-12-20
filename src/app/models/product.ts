@@ -1,4 +1,4 @@
-export class Item {
+export class Product {
     public eanucc13: number;
     public upca: number;    
     public displayName: string;

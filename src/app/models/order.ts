@@ -1,4 +1,4 @@
-import { Item } from './item';
+import { Product } from './product';
 import { TimeStamp } from './timestamp';
 
 export class Order {
@@ -6,7 +6,7 @@ export class Order {
     public customerId: number;
     public utcTimeStamp: string;
     public total: number; // total order cost
-    public items:Array<Item>;
+    public items:Array<Product>;
     
     constructor() {
         let o = {

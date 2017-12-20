@@ -5,7 +5,7 @@ import { Subject }    from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/Rx";
 import { Router }   from '@angular/router';
 
-import { AuthService, TestService, UserService, OrderService } from './index';
+import { AuthService, TestService, UserService, OrderService, ProductService } from './index';
 
 @Injectable()
 export class HubService {
@@ -32,7 +32,8 @@ export class HubService {
   
   constructor(public _as:AuthService, 
               public _u:UserService,
-              public _o:OrderService,
+              public _order:OrderService,
+              public _product:ProductService,
               public _test:TestService,
               private router:Router
             ) { 
@@ -49,9 +50,9 @@ export class HubService {
         this.navigate('login');
       }
     });
-    this._o.order$.subscribe
+    this._order.order$.subscribe
     this._u.user$.subscribe(res => {
-      this._o.updateOrderAttrib('employeeKey', res.key);
+      this._order.updateOrderAttrib('employeeKey', res.key);
     });
   }
 

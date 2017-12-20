@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MobileUpheaderComponent } from './mobile-upheader.component';
+import { ItemListingComponent } from './item-listing.component';
 
-describe('MobileUpheaderComponent', () => {
-  let component: MobileUpheaderComponent;
-  let fixture: ComponentFixture<MobileUpheaderComponent>;
+describe('ItemListingComponent', () => {
+  let component: ItemListingComponent;
+  let fixture: ComponentFixture<ItemListingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MobileUpheaderComponent ]
+      declarations: [ ItemListingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MobileUpheaderComponent);
+    fixture = TestBed.createComponent(ItemListingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

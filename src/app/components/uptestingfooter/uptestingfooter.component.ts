@@ -12,11 +12,13 @@ export class UpTestingfooterComponent {
   private user;
   private order;
   private screenWidth;
+  private product;
 
   constructor( private _hub:HubService ) { 
     this._hub._test.testing$.subscribe(res => this.testing = res);
     this._hub._u.user$.subscribe(res => this.user = res);
-    this._hub._o.order$.subscribe(res => this.order = res);
+    this._hub._order.order$.subscribe(res => this.order = res);
+    this._hub._product.product$.subscribe(res => this.product = res);
   }
 
 }

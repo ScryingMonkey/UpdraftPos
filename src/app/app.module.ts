@@ -13,10 +13,12 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
-import { AuthService, TestService, UserService, OrderService } from './services/index';
+import { AuthService, TestService, UserService, OrderService, ProductService } from './services/index';
 import { HubService } from './services/hub.service';
 import { UpHeaderDesktopComponent, UptoplinksComponent, UpheaderMobileComponent } from './components/upheader/index';
 import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent, UserPaneComponent } from "./components/index";
+import { ItemDetailComponent } from './components/upinventory/item-detail/item-detail.component';
+import { ItemListingComponent } from './components/upinventory/item-listing/item-listing.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderCo
     UpInventoryComponent,
     UserPaneComponent,
     UptoplinksComponent,
-    UpheaderMobileComponent
+    UpheaderMobileComponent,
+    ItemDetailComponent,
+    ItemListingComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,7 @@ import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderCo
     UserService,
     OrderService,
     TestService,
+    ProductService,
     // AngularFirestore,
     // AngularFirestoreDocument,
     AngularFireAuth

@@ -5,7 +5,7 @@ import { Subject }    from 'rxjs/Subject';
 import { BehaviorSubject } from "rxjs/Rx";
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import { Order, Item } from '../models/index';
+import { Order, Product } from '../models/index';
 
 
 @Injectable()
@@ -26,8 +26,8 @@ export class OrderService {
     });
     return total/100;
   }
-  pullItemFromDB(eanucc13:number):Item {
-    let item = new Item();
+  pullItemFromDB(eanucc13:number):Product {
+    let item = new Product();
     // Pull item from database by eanucc13 number
     console.log("...TODO!! Pull item from database by eanucc13 number.");
     return item;
@@ -64,21 +64,21 @@ export class OrderService {
     o[key] = value;
     this.updateOrder(o);
   }
-  addItem(item:Item) { 
+  addItem(item:Product) { 
     let o = this.order.value;
     o.items.push(item);
     o.total = this.totalOrder(o);
     this.updateOrder(o);
   }
-  addItemByEanucc13(eanucc13:number):Item {
+  addItemByEanucc13(eanucc13:number):Product {
     console.log('[ OrderService.addItemByEanucc13('+ eanucc13 +')...');
-    let i = new Item();
+    let i = new Product();
     // lookup item in database
     console.log("...TODO!! Lookup item in database.  Using new Item() for now.")
     this.addItem(i);
     return i;
   }
-  removeItem(item:Item):Item {
+  removeItem(item:Product):Product {
     let eanucc13 = item.eanucc13;
     let o = this.order.value;
     for (var i = 0; i < o.items.length; i++) {
