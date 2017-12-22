@@ -1,3 +1,17 @@
-<p>
-  up-inventory works!
-</p>
+<div class="col-md-7">
+  <!-- Product List -->
+  <div class="title">Product List</div>
+  <ul class="product-list">
+    <li *ngFor="let product of productList">
+      <product-listing input [product]="product"></product-listing>
+    </li>
+  </ul>
+  <div class="button-big"
+    (click)="addProduct()" >
+    Add Product
+  </div>
+</div>
+<div class="col-md-5">
+  <div *ngIf="!editing"><item-detail></item-detail></div>
+  <div *ngIf="editing"><new-product-detail></new-product-detail></div>  
+</div>

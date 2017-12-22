@@ -15,13 +15,14 @@ export class Product {
         let i = {
             upca: "000000000000",
             eanucc13: Math.round(Math.random()*9999999999999),
-            displayName: "New Item",
+            displayName: "New Item "+Math.round(Math.random()*100),
             cost: +(r).toFixed(2),
             price: +(r*1.4).toFixed(2),
             description: "New Item Description.",
             sizeweight: Math.round(Math.floor(Math.random()*(30.00-0.25+1)+0.25)).toFixed(1) +" oz",
             issuingCountry: "NA",
-            lastModified: "NA"
+            lastModified: "NA",
+            quantity: 0
         };
         this.updateValues(i);
     }

@@ -1,3 +1,13 @@
-<p>
-  item-detail works!
-</p>
+<div class = "tile-item-detail">
+  <b>{{ product.displayName }}</b><br>
+  <br>
+  Quantity: {{ product.quantity }}<br>
+  Price: ${{ product.price.toFixed(2) }}<br>
+  Cost: ${{ product.cost.toFixed(2) }}<br>
+  Margin: ${{ ((product.price*100-product.cost*100)/100).toFixed(2) }}<br>
+  <br>
+  eanucc13: {{ product.eanucc13 }}<br>
+  upca: {{ product.upca }}<br>
+  Description: {{ product.description }}<br>
+</div>
+

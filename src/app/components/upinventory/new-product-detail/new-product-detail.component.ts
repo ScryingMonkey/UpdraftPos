@@ -4,16 +4,16 @@ import { HubService } from '../../../services/hub.service';
 import { Product, TimeStamp } from '../../../models/index';
 
 @Component({
-  selector: 'item-detail',
-  templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css']
+  selector: 'new-product-detail',
+  templateUrl: './new-product-detail.component.html',
+  styleUrls: ['./new-product-detail.component.css']
 })
-export class ItemDetailComponent implements OnInit {
+export class NewProductDetailComponent implements OnInit {
   private product:Product;
-  
+
   constructor(private _hub:HubService) {
     _hub._product.product$.subscribe(res => this.product = res);
-   }
+  }
 
   ngOnInit() {
   }

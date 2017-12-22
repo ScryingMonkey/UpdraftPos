@@ -18,7 +18,8 @@ import { HubService } from './services/hub.service';
 import { UpHeaderDesktopComponent, UptoplinksComponent, UpheaderMobileComponent } from './components/upheader/index';
 import { UpDashboardComponent, UpInventoryComponent, UpLoginComponent, UpOrderComponent, UpPosComponent, UpTestingfooterComponent, UpWelcomeComponent, UserPaneComponent } from "./components/index";
 import { ItemDetailComponent } from './components/upinventory/item-detail/item-detail.component';
-import { ItemListingComponent } from './components/upinventory/item-listing/item-listing.component';
+import { ProductListingComponent } from './components/upinventory/product-listing/product-listing.component';
+import { NewProductDetailComponent } from './components/upinventory/new-product-detail/new-product-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ItemListingComponent } from './components/upinventory/item-listing/item
     UptoplinksComponent,
     UpheaderMobileComponent,
     ItemDetailComponent,
-    ItemListingComponent
+    ProductListingComponent,
+    NewProductDetailComponent
   ],
   imports: [
     BrowserModule,

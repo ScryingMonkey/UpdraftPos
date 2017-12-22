@@ -9,24 +9,26 @@ import { Product } from '../models/index';
 
 @Injectable()
 export class ProductService {
-  private product: BehaviorSubject<Product> = new BehaviorSubject(new Product());
-  private productList: Array<any>;
+  private product: BehaviorSubject<Product> = 
+    new BehaviorSubject(new Product());
+  private productList: BehaviorSubject<Array<any>> = 
+    new BehaviorSubject([new Product(), new Product(), new Product()]);
   private productRef: AngularFireList<Product>;
 
   constructor(private _afdb: AngularFireDatabase) { 
     console.log('[ ProductService.constructor...');
     this.productRef = _afdb.list<Product>('products');
-    this.productRef.valueChanges().subscribe (res=> {
-      this.productList = res;
-      console.log("...pulled product:" +res);       
-      console.dir(res);
-    });
+    // this.productRef.valueChanges().subscribe (res=> {
+    //   this.productList.next(res);
+    //   console.log("...pulled product:" +res);       
+    //   console.dir(res);
+    // });
   }
   // ###############################################
   // #  Helpers
   // ###############################################
   checkForProductInList(product:Product):boolean {
-    return this.productList.includes(product)
+    return this.productList.value.includes(product);
   }
   checkForProductInDb(product:Product):Promise<boolean> {
     console.log('[ ProductService.checkForProductInDb...');
@@ -58,6 +60,9 @@ export class ProductService {
   // ###############################################
   get product$() { 
     return this.product.asObservable(); 
+  }
+  get productList$() {
+    return this.productList.asObservable();
   }
   pullProductFromDB(eanucc13:number):Product {
     let product = new Product();
