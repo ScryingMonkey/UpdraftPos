@@ -1,7 +1,7 @@
 
 
 
-<div  class = "tile-item" (click)="clickListing()">
+<div  class = "tile-item" (click)="clicked()">
   <div class="row">
     <div class="col-md-12">
       <b>{{ product.displayName }}</b>
@@ -20,8 +20,9 @@
       type="number" min=0 step=1>
     </div>
     <div class="col-md-2">
-      <div class="button-verysmall">+</div>
-      <div class="button-verysmall">-</div>
+      <div *ngIf="!editing" (click)="edit()" class="button-verysmall">Edit</div>
+      <div *ngIf="editing" (click)="save()" class="button-verysmall">Save</div>
     </div>
   </div>
 </div>
+<div>

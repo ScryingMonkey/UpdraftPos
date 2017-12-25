@@ -128,5 +128,6 @@ export class ProductService {
   }
   saveNewProduct(product:Product) { 
     console.log("...saving new product: " +product.displayName);
+    this.updateProductInFirebase(this.product.value);
   }
 }

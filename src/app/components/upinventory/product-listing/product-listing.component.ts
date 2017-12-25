@@ -18,12 +18,15 @@ export class ProductListingComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickListing() { 
-    this._hub._product.updateProduct(this.product);
+  clicked() {
+    this._hub._product.updateProduct(this.product);    
+  }
+  edit() { 
     this.editing = !this.editing;
   }
 
   save() {
+    this._hub._product.updateProduct(this.product);
     this.editing = false;
   }
 
