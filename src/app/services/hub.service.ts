@@ -18,12 +18,12 @@ export class HubService {
     {'label':'dashboard', 'address':'dashboard'}
   ];
   private lastLink: Object = {'label':'Log Out', 'address':'logout'};
-
   private headerLinks: BehaviorSubject<Array<any>> = 
                           new BehaviorSubject(this.pages);
   private isLoggedIn: BehaviorSubject<boolean> = 
                           new BehaviorSubject(false);
   private screenWidth:BehaviorSubject<number> = new BehaviorSubject(500);
+  public editingNewProduct:boolean = false;  
   public user;
   public order;
   public customer;
@@ -71,6 +71,6 @@ export class HubService {
     links.push(this.lastLink);
     // update headerLinks to new list
     this.headerLinks.next(links); 
-  }  
+  } 
 
 }

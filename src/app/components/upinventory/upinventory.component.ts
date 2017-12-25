@@ -11,20 +11,27 @@ import { Product, TimeStamp } from '../../models/index';
 export class UpInventoryComponent implements OnInit {
   private product:Product;
   private productList:Array<any>;
-  private editing: boolean;
+  private editingTitle: string;
 
   constructor(private _hub:HubService) {
     _hub._product.product$.subscribe(res => this.product = res);
     _hub._product.productList$.subscribe(res => this.productList = res);
    }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
-  addProduct() {
-    console.log("[ UpInventoryComponent.addProduct()...");
-    this.editing = true;
-    console.log("...editing = " +this.editing);
+  
+  newProduct() {
+    console.log("[ UpInventoryComponent.newProduct()...");
+    this._hub._product.updateProduct(new Product().blank);
+    this.editingTitle = "New Product"    
+    this._hub.editingNewProduct = true;
+    console.log("...editing = " +this._hub.editingNewProduct);
   }
-
+  editProduct() {
+    console.log("[ UpInventoryComponent.editProduct()...");
+    this.editingTitle = "Edit Product"    
+    this._hub.editingNewProduct = true;
+    console.log("...editing = " +this._hub.editingNewProduct);
+  }
 }

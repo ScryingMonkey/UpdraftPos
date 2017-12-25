@@ -1,12 +1,62 @@
 <div class = "tile-item-detail">
-  <b>{{ product.displayName }}</b><br>
-  <br>
-  Quantity: [( product.quantity )]<br>
-  Price: $[( product.price )]<br>
-  Cost: $[(  product.cost )]<br>
-  Margin: $[(  ((product.price)]<br>
-  <br>
-  eanucc13: [( product.eanucc13 )]<br>
-  upca: [( product.upca )]<br>
-  Description: [( product.description )]<br>
+  <form action="#" class="upform">
+      <div>
+        <h2>{{ editingTitle }}</h2>
+        <div class="form-row">
+            <label for="eanucc13"></label>
+            <div class="input-group"> 
+              <span class="input-group-addon">EANUCC13 </span>
+              <input type="text" class="form-control upform-input" id="eanucc13" name="eanucc13"
+              [(ngModel)]="product.eanucc13" name="eanucc13"  #name="ngModel" />
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="upca"></label>
+            <div class="input-group"> 
+              <span class="input-group-addon">UPCA </span>
+              <input type="text" class="form-control  upform-input" id="upca" name="upca"
+              [(ngModel)]="product.upca" name="upca"  #name="ngModel" />
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="displayName"></label>
+            <div class="input-group"> 
+              <span class="input-group-addon">Name </span>
+              <input type="text" class="form-control  upform-input" id="displayName" name="displayName"
+              [(ngModel)]="product.displayName" name="displayName"  #name="ngModel" />
+            </div>
+        </div>
+        <div class="form-row">
+          <label for="price"></label>
+          <div class="input-group"> 
+              <span class="input-group-addon">Price $</span>
+              <input type="number" min="0" step="0.01" data-number-to-fixed="2" 
+              data-number-stepfactor="100" class="form-control currency upform-input" id="price" 
+              [(ngModel)]="product.price" name="price"  #name="ngModel" />
+          </div>
+        </div>
+        <div class="form-row">
+            <label for="cost"></label>
+            <div class="input-group"> 
+              <span class="input-group-addon">Cost $</span>
+              <input type="number" min="0" step="0.01" data-number-to-fixed="2" 
+              data-number-stepfactor="100" class="form-control currency upform-input" id="cost" 
+              [(ngModel)]="product.cost" name="cost"  #name="ngModel" />
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="description"></label>
+            <div class="input-group"> 
+              <span class="input-group-addon">Description</span>
+              <input type="text" class="form-control currency" id="description" name="description"
+              [(ngModel)]="product.description" name="description"  #name="ngModel" />
+            </div>
+        </div>
+
+      </div>
+    </form>
+    <br>
+    <div class="button-small" (click)="saveNewProduct()" >Save</div>
+    <div class="button-small" (click)="resetProduct()" >Reset</div>
+    <div class="button-small" (click)="cancelProduct()" >Cancel</div>
 </div>

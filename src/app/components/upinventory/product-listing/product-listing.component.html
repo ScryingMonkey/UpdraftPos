@@ -1,12 +1,27 @@
-<div class = "tile-item">
-  <div class="col-md-4">
-    <b>{{ product.displayName }}</b>
+
+
+
+<div  class = "tile-item" (click)="clickListing()">
+  <div class="row">
+    <div class="col-md-12">
+      <b>{{ product.displayName }}</b>
+    </div>
   </div>
-  <div class="col-md-4">
-      Price: ${{ product.price.toFixed(2) }}
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      Price: $ {{ product.price.toFixed(2) }}
+    </div>
+    <div class="col-md-4">
+      Quantity: 
+      <span *ngIf="!editing"> {{ product.quantity }} </span>   
+      <input *ngIf="editing" [(ngModel)]="product.quantity" class="input-inplace-edit"
+      type="number" min=0 step=1>
+    </div>
+    <div class="col-md-2">
+      <div class="button-verysmall">+</div>
+      <div class="button-verysmall">-</div>
+    </div>
   </div>
-  <div class="col-md-4">
-    Quantity: {{ product.quantity }}
-  </div>
-  <br>
 </div>

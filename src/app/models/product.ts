@@ -33,6 +33,23 @@ export class Product {
                 this[k] = update[k];
             }
         }
+        return this;
+    }
+
+    get blank() { 
+        let blank = {
+            upca: "",
+            eanucc13: null,
+            displayName: "",
+            cost: null,
+            price: null,
+            description: "",
+            sizeweight: null,
+            issuingCountry: "",
+            lastModified: "",
+            quantity: 0
+        };
+        return this.updateValues(blank);
     }
     
     get json() { return JSON.stringify(this); }

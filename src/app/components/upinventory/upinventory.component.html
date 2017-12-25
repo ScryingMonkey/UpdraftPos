@@ -6,12 +6,18 @@
       <product-listing input [product]="product"></product-listing>
     </li>
   </ul>
-  <div class="button-big"
-    (click)="addProduct()" >
-    Add Product
+  <div class="button-small" (click)="editProduct()">
+    Edit
+  </div>
+  <div class="button-small" (click)="newProduct()">
+    New
   </div>
 </div>
 <div class="col-md-5">
-  <div *ngIf="!editing"><item-detail></item-detail></div>
-  <div *ngIf="editing"><new-product-detail></new-product-detail></div>  
+  <div *ngIf="!_hub.editingNewProduct">
+    <item-detail></item-detail>
+  </div>
+  <div *ngIf="_hub.editingNewProduct">
+    <new-product-detail input [editingTitle]="editingTitle"></new-product-detail>
+  </div>  
 </div>

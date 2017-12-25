@@ -6,7 +6,7 @@ import { BehaviorSubject } from "rxjs/Rx";
 
 @Injectable()
 export class TestService {
-  private testing: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private testing: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   constructor() { }
   

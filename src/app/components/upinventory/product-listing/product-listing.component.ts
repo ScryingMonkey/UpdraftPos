@@ -10,10 +10,21 @@ import { Product, TimeStamp } from '../../../models/index';
 })
 export class ProductListingComponent implements OnInit {
   @Input() product:Product;
+  private editing:boolean = false;
 
-  constructor() { }
+  constructor(private _hub:HubService) {
+  }
 
   ngOnInit() {
+  }
+
+  clickListing() { 
+    this._hub._product.updateProduct(this.product);
+    this.editing = !this.editing;
+  }
+
+  save() {
+    this.editing = false;
   }
 
 }

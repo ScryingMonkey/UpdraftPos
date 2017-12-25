@@ -14,6 +14,7 @@ export class ProductService {
   private productList: BehaviorSubject<Array<any>> = 
     new BehaviorSubject([new Product(), new Product(), new Product()]);
   private productRef: AngularFireList<Product>;
+  
 
   constructor(private _afdb: AngularFireDatabase) { 
     console.log('[ ProductService.constructor...');
@@ -124,5 +125,8 @@ export class ProductService {
       console.log("...Successfully removed " +product.displayName+ " from db.");
     }
     return res;
+  }
+  saveNewProduct(product:Product) { 
+    console.log("...saving new product: " +product.displayName);
   }
 }
