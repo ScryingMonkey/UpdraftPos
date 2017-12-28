@@ -19,11 +19,11 @@ export class ProductService {
   constructor(private _afdb: AngularFireDatabase) { 
     console.log('[ ProductService.constructor...');
     this.productRef = _afdb.list<Product>('products');
-    // this.productRef.valueChanges().subscribe (res=> {
-    //   this.productList.next(res);
-    //   console.log("...pulled product:" +res);       
-    //   console.dir(res);
-    // });
+    this.productRef.valueChanges().subscribe (res=> {
+      this.productList.next(res);
+      console.log("...pulled product:" +res);       
+      console.dir(res);
+    });
   }
   // ###############################################
   // #  Helpers
